@@ -8,7 +8,10 @@ function Header() {
         <nav className="nav">
           {/* TODO (student): Add navigation links as you complete routes. */}
           <NavLink to="/" end>Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
           <NavLink to="/blog">Blog</NavLink>
+          <NavLink to="/posts/new">New Post</NavLink>
           {/* Suggested links to add: /about, /contact, /posts/new */}
         </nav>
       </div>
