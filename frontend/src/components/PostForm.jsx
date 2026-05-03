@@ -1,5 +1,5 @@
-// TODO (student): Build this reusable form so both NewPostPage and EditPostPage can use it.
-// Suggested requirements:
+// COMPLETED: Build this reusable form so both NewPostPage and EditPostPage can use it.
+// Requirements:
 // - Accept props: initialData, onSubmit, submitting
 // - Render title, author, and content fields
 // - Pre-fill fields with initialData values when provided

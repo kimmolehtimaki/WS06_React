@@ -71,11 +71,11 @@ Implement the TODOs inside these files:
 
 ## Done Checklist
 
-- [ ] All TODOs in selected frontend files are completed
-- [ ] Blog list page loads posts from API
-- [ ] New post form creates a post
-- [ ] Single post page shows one post by id
-- [ ] Edit page updates post data
-- [ ] Delete action removes a post and redirects to blog
-- [ ] No console errors in browser
-- [ ] App works with backend running on port 3000
+- [X] All TODOs in selected frontend files are completed
+- [X] Blog list page loads posts from API
+- [X] New post form creates a post
+- [X] Single post page shows one post by id
+- [X] Edit page updates post data
+- [X] Delete action removes a post and redirects to blog
+- [X] No console errors in browser
+- [X] App works with backend running on port 3000

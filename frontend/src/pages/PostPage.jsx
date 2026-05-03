@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
-// TODO (student): Implement single-post view and delete flow.
-// Suggested steps:
+// COMPLETED: Implement single-post view and delete flow.
 // 1) Fetch a single post with GET /api/posts/:id.
 // 2) Render title, author, date, and content.
 // 3) Add delete handler with DELETE /api/posts/:id.
@@ -17,15 +16,64 @@ function PostPage() {
   const [deleting, setDeleting] = useState(false)
 
   useEffect(() => {
-    // TODO (student): Replace this placeholder with GET /api/posts/:id fetch logic.
-    setLoading(false)
+    // COMPLETED: Replace this placeholder with GET /api/posts/:id fetch logic.
+    let ignore = false
+
+    async function loadPost() {
+      setLoading(true)
+      setError(null)
+      setPost(null)
+
+      try {
+        const response = await fetch(`/api/posts/${id}`)
+        const result = await response.json()
+
+        if (!response.ok) {
+          throw new Error(result.error || 'Failed to load post')
+        }
+
+        if (!ignore) {
+          setPost(result)
+        }
+      } catch (loadError) {
+        if (!ignore) {
+          setError(loadError.message)
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false)
+        }
+      }
+    }
+
+    loadPost()
+
+    return () => {
+      ignore = true
+    }
   }, [id])
 
   async function handleDelete() {
-    // TODO (student): Implement DELETE /api/posts/:id and navigate('/blog').
+    // COMPLETED: Implement DELETE /api/posts/:id and navigate('/blog').
     setDeleting(true)
-    setError('TODO: implement DELETE /api/posts/:id in PostPage')
-    setDeleting(false)
+    setError(null)
+
+    try {
+      const response = await fetch(`/api/posts/${id}`, {
+        method: 'DELETE',
+      })
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to delete post')
+      }
+
+      navigate('/blog')
+    } catch (deleteError) {
+      setError(deleteError.message)
+    } finally {
+      setDeleting(false)
+    }
   }
 
   if (loading) return <p className="status-msg">Loading…</p>

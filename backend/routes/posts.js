@@ -61,7 +61,11 @@ router.put('/:id', async (req, res) => {
       return res.status(400).json({ error: 'Invalid post id' });
     }
 
-    const post = await Post.findByIdAndUpdate(req.params.id, req.body, {
+    // PUT handler extracts only title, author and content
+    // leaving _id and createdAt untouched
+    // Issue solved succesfully using GitHub Copilot
+    const { title, author, content } = req.body
+    const post = await Post.findByIdAndUpdate(req.params.id, { title, author, content }, {
       new: true,
       runValidators: true,
     });
