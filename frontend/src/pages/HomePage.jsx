@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import PostCard from '../components/PostCard.jsx'
 
-// TODO (student): Fetch all posts from the backend and render them.
+// COMPLETED: Fetch all posts from the backend and render them.
 // Suggested steps:
 // 1) Keep local state for posts, loading, and error.
 // 2) In useEffect, call GET /api/posts.
@@ -19,7 +19,7 @@ function HomePage() {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/posts`, {
+        const response = await fetch('/api/posts', {
           signal: controller.signal
         })
 
