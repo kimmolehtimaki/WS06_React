@@ -228,9 +228,9 @@ Your solution is complete when:
 - [X] All six CRUD endpoints are implemented and tested
 - [X] React app renders without console errors
 - [X] Blog listing page fetches and displays posts
-- [ ] New post form creates a post and redirects
-- [ ] Post detail page shows a post and supports deletion
-- [ ] Edit page loads existing post data and saves changes
+- [X] New post form creates a post and redirects
+- [X] Post detail page shows a post and supports deletion
+- [X] Edit page loads existing post data and saves changes
 - [X] Navigation links work for all routes
 - [X] Code is pushed to GitHub
 - [X] Repository does not contain `node_modules`, `.env`, or `dist/`
