@@ -25,7 +25,8 @@ function NewPostPage() {
         content: (formData.get('content') || '').trim(),
       }
 
-      const response = await fetch('/api/posts', {
+      // Corrected fetch URI to enable POST at Render
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
