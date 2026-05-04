@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
 require('dotenv').config();
 
 // Commented out since while starting the server route was not found 
@@ -37,6 +38,13 @@ async function connectToDatabase() {
 
 }
 
+// To enable CORS, solved with the help of ChatGPT
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://ws06-react-1-5zuk.onrender.com'
+  ]
+}))
 app.locals.publicDir = publicDir;
 app.use(express.json());
 app.use(express.static(publicDir));

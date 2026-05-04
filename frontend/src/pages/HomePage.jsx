@@ -19,7 +19,10 @@ function HomePage() {
 
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/posts`, {
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
+        console.log('API_URL:', API_URL)
+        console.log('FULL URL:', `${API_URL}/api/posts`)
+        const response = await fetch(`${API_URL}/api/posts`, {
           signal: controller.signal
         })
 
